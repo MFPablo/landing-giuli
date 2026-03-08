@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

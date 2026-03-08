@@ -88,7 +88,7 @@ function SpecialtyCard({
         ease: [0.22, 1, 0.36, 1],
       }}
       onClick={() => setExpanded(!expanded)}
-      className="glass-card glass-card-hover p-8 cursor-pointer relative overflow-hidden group"
+      className="glass-card glass-card-hover p-6 md:p-8 cursor-pointer relative overflow-hidden group"
     >
       {/* Glow background */}
       <div

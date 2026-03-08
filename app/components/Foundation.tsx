@@ -166,7 +166,7 @@ function PillarCard({
         delay: index * 0.15,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="glass-card glass-card-hover p-8"
+      className="glass-card glass-card-hover p-6 md:p-8"
     >
       <span className="text-4xl mb-4 block">{pillar.icon}</span>
       <h3 className="text-xl font-bold text-[var(--foreground)] mb-3">{pillar.title}</h3>

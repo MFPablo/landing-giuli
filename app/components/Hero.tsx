@@ -93,23 +93,28 @@ export default function Hero() {
         </motion.div>
 
         {/* Kinetic title */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95]">
-          {titleLetters.map((letter, i) => (
-            <motion.span
-              key={i}
-              variants={letterVariants}
-              initial="hidden"
-              animate="visible"
-              custom={i}
-              className={`inline-block ${
-                letter === " " ? "w-[0.3em]" : ""
-              } ${
-                i < 8 ? "gradient-text" : "text-[var(--foreground)]"
-              }`}
-              style={{ perspective: "600px" }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95] flex flex-wrap justify-center gap-x-[0.3em] gap-y-2">
+          {["Giuliana", "Covello"].map((word, wordIndex) => (
+            <span key={wordIndex} className="whitespace-nowrap flex">
+              {word.split("").map((letter, i) => {
+                const totalIndex = wordIndex === 0 ? i : "Giuliana ".length + i;
+                return (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={totalIndex}
+                    className={`inline-block ${
+                      totalIndex < 8 ? "gradient-text" : "text-[var(--foreground)]"
+                    }`}
+                    style={{ perspective: "600px" }}
+                  >
+                    {letter}
+                  </motion.span>
+                );
+              })}
+            </span>
           ))}
         </h1>
 
@@ -131,8 +136,8 @@ export default function Hero() {
           className="text-base sm:text-lg text-[var(--muted)] max-w-2xl mx-auto mb-10"
         >
           Especialista en evaluaciones{" "}
-          <span className="text-[var(--primary-light)] font-medium">ADOS-2</span> y{" "}
-          <span className="text-[var(--primary-light)] font-medium">ADI-R</span>
+          <span className="text-[var(--primary-light)] font-medium whitespace-nowrap">ADOS-2</span> y{" "}
+          <span className="text-[var(--primary-light)] font-medium whitespace-nowrap">ADI-R</span>
         </motion.p>
 
         <motion.div

@@ -82,10 +82,9 @@ export default function Awards() {
       </div>
 
       {/* Marquee banner */}
-      <div className="relative py-8 bg-gradient-to-r from-[var(--surface)] via-[var(--surface-light)] to-[var(--surface)] border-y border-[var(--surface-border)]">
-        <div className="overflow-hidden">
-          <div className="marquee-track">
-            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+      <div className="relative py-6 md:py-8 bg-gradient-to-r from-[var(--surface)] via-[var(--surface-light)] to-[var(--surface)] border-y border-[var(--surface-border)] overflow-hidden flex w-full">
+        <div className="marquee-track flex-shrink-0">
+          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
               <span
                 key={i}
                 className="flex items-center gap-4 px-8 text-sm font-medium text-[var(--muted)] whitespace-nowrap"
@@ -94,7 +93,6 @@ export default function Awards() {
                 {item}
               </span>
             ))}
-          </div>
         </div>
       </div>
     </section>
@@ -121,7 +119,7 @@ function AwardCard({
         delay: index * 0.12,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="glass-card glass-card-hover p-8 flex gap-5"
+      className="glass-card glass-card-hover p-6 md:p-8 flex flex-col sm:flex-row gap-4 sm:gap-5"
     >
       <div className="text-3xl flex-shrink-0">{award.icon}</div>
       <div>
