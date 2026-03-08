@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Landing Page - Lic. Giuliana Covello
 
-## Getting Started
+Esta es la landing page profesional de la **Lic. Giuliana Covello**, psicóloga especializada en neurodesarrollo y lengua de señas (LSA). El sitio está diseñado para proyectar autoridad profesional y facilitar la consulta por servicios de evaluación diagnóstica (ADOS-2, ADI-R) y psicoterapia.
 
-First, run the development server:
+## 🚀 Tecnologías
+
+Este proyecto utiliza un stack moderno de alto rendimiento:
+
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/) con Turbopack.
+- **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/) (diseño responsivo y dark mode nativo).
+- **Animaciones:** [Framer Motion](https://www.framer.com/motion/) para transiciones fluidas y micro-interacciones.
+- **Scroll:** [Lenis](https://lenis.darkroom.engineering/) para scroll suave estilo premium.
+- **Runtime & Package Manager:** [Bun](https://bun.sh/) para máxima velocidad en desarrollo y dependencias.
+
+## 🛠️ Configuración del Entorno de Desarrollo
+
+Para ejecutar este proyecto localmente, asegúrate de tener instalado [Bun](https://bun.sh/).
+
+### 1. Instalación de dependencias
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+### 2. Ejecutar el servidor de desarrollo
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El sitio estará disponible en [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Construcción para producción
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run build
+bun start
+```
 
-## Learn More
+## ✨ Características Principales
 
-To learn more about Next.js, take a look at the following resources:
+- **Diseño Dual (Light/Dark Mode):** Sistema de temas con toggle manual y detección de preferencias del sistema.
+- **Rendimiento Visual:** Animaciones de entrada cinéticas en el Hero y transiciones de trayectoria suaves.
+- **Contenido Real:** Información profesional extraída directamente del currículum de la Licenciada.
+- **Accesibilidad:** Enfoque en la comunidad sorda y enlaces directos a la Fundación Psico_LSA.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Estructura del Proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/app`: Rutas y componentes principales de Next.js.
+- `/app/components`: Componentes modulares (Hero, Timeline, Specialties, etc.).
+- `/public`: Activos estáticos, imágenes y tipografía.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Desarrollado con enfoque en excelencia UX/UI para salud mental.
