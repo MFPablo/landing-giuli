@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
@@ -36,7 +37,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[rgba(5,10,20,0.85)] backdrop-blur-xl border-b border-[var(--surface-border)] shadow-lg shadow-black/20"
+            ? "bg-[var(--nav-bg)] backdrop-blur-xl border-b border-[var(--surface-border)] shadow-lg shadow-black/5"
             : "bg-transparent"
         }`}
       >
@@ -51,7 +52,7 @@ export default function Navbar() {
             className="text-lg font-bold tracking-tight font-[var(--font-outfit)]"
           >
             <span className="gradient-text">Giuliana</span>{" "}
-            <span className="text-white">Covello</span>
+            <span className="text-[var(--foreground)]">Covello</span>
           </a>
 
           {/* Desktop links */}
@@ -64,7 +65,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="text-sm text-[var(--muted)] hover:text-white transition-colors duration-300 relative group"
+                  className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300 relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] group-hover:w-full transition-all duration-300" />
@@ -73,37 +74,43 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA Desktop */}
-          <a
-            href="#contacto"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#contacto");
-            }}
-            className="hidden md:inline-flex btn-glow !py-2.5 !px-5 !text-sm"
-          >
-            Solicitar Turno
-          </a>
+          {/* Right side: theme toggle + CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+            <a
+              href="#contacto"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#contacto");
+              }}
+              className="btn-glow !py-2.5 !px-5 !text-sm"
+            >
+              Solicitar Turno
+            </a>
+          </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
-            aria-label="Toggle menu"
-          >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-[2px] bg-white origin-center"
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-[2px] bg-white"
-            />
-            <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-[2px] bg-white origin-center"
-            />
-          </button>
+          {/* Mobile: theme toggle + hamburger */}
+          <div className="flex md:hidden items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+              aria-label="Toggle menu"
+            >
+              <motion.span
+                animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-[2px] bg-[var(--hamburger-color)] origin-center"
+              />
+              <motion.span
+                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="block w-6 h-[2px] bg-[var(--hamburger-color)]"
+              />
+              <motion.span
+                animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-[2px] bg-[var(--hamburger-color)] origin-center"
+              />
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -115,7 +122,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[rgba(5,10,20,0.97)] backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-[var(--mobile-bg)] backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
@@ -128,7 +135,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-2xl font-semibold text-white hover:text-[var(--primary-light)] transition-colors"
+                className="text-2xl font-semibold text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
               >
                 {link.label}
               </motion.a>

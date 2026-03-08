@@ -5,42 +5,40 @@ import { useRef } from "react";
 
 const awards = [
   {
-    icon: "🏆",
-    title: "Premio Facultad de Psicología — UBA",
-    year: "2023",
-    description: "Reconocimiento por aportes destacados en el campo de la psicología clínica y neurodesarrollo.",
-  },
-  {
     icon: "🎤",
-    title: "Disertante Recurrente",
-    year: "2021–2025",
-    description: "Ponencias en congresos nacionales e internacionales sobre autismo, discapacidad y lengua de señas.",
-  },
-  {
-    icon: "🏆",
-    title: "Premio Facultad de Psicología — UBA",
+    title: "Congreso Internacional de Psicología — UBA",
     year: "2025",
-    description: "Segundo reconocimiento por investigación y compromiso con el acceso a salud mental inclusiva.",
+    description: "Disertante en el XVII Congreso Internacional de Investigación y Práctica Profesional de Psicología.",
   },
   {
-    icon: "📝",
-    title: "Publicaciones Académicas",
-    year: "2022–2025",
-    description: "Autora de artículos y capítulos sobre diagnóstico diferencial y accesibilidad en salud mental.",
+    icon: "🌟",
+    title: "I Jornada de Salud Mental y LSA",
+    year: "2025",
+    description: "Organizadora y disertante principal en la jornada impulsada por la Fundación Psico_LSA.",
+  },
+  {
+    icon: "🏛️",
+    title: "Congreso Argentino de Salud Mental",
+    year: "2025",
+    description: "Disertante en el XVIII Congreso organizado por la Asociación Argentina de Salud Mental (AASM).",
+  },
+  {
+    icon: "📜",
+    title: "Congreso de Psicología — UNLP",
+    year: "2023",
+    description: "Expositora en el Congreso Internacional «A 40 años de la recuperación democrática en Argentina».",
   },
 ];
 
 const marqueeItems = [
-  "Diagnóstico de precisión",
-  "ADOS-2",
-  "ADI-R",
-  "Neurodesarrollo",
-  "Lengua de Señas Argentina",
+  "ADOS-2 y ADI-R",
+  "Lengua de Señas Argentina (LSA)",
   "Psicoterapia Cognitiva Integrativa",
+  "Evaluación Neuropsicológica",
+  "Análisis Conductual Aplicado",
+  "Neurodesarrollo",
   "Fundación Psico_LSA",
   "Salud Mental Inclusiva",
-  "UBA",
-  "Hospital Tobar García",
 ];
 
 export default function Awards() {
@@ -128,7 +126,7 @@ function AwardCard({
       <div className="text-3xl flex-shrink-0">{award.icon}</div>
       <div>
         <div className="flex items-center gap-3 mb-2 flex-wrap">
-          <h3 className="text-lg font-bold text-white">{award.title}</h3>
+          <h3 className="text-lg font-bold text-[var(--foreground)]">{award.title}</h3>
           <span className="text-xs font-mono text-[var(--primary-light)] bg-[rgba(14,165,233,0.1)] px-2 py-0.5 rounded-full">
             {award.year}
           </span>

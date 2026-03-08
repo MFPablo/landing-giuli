@@ -24,7 +24,7 @@ const contactLinks = [
   },
   {
     label: "Email",
-    href: "mailto:contacto@giulianacovello.com",
+    href: "mailto:lic.giulianacovello@gmail.com",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -87,7 +87,7 @@ export default function Contact() {
           className="mb-12"
         >
           <a
-            href="https://wa.me/5491100000000?text=Hola%20Giuliana,%20me%20gustaría%20consultar%20por%20una%20evaluación%20diagnóstica."
+            href="https://wa.me/5491164369172?text=Hola%20Giuliana,%20me%20gustaría%20consultar%20por%20una%20evaluación%20diagnóstica."
             target="_blank"
             rel="noopener noreferrer"
             className="btn-glow text-lg"
@@ -128,7 +128,7 @@ export default function Contact() {
           className="mt-16 pt-8 border-t border-[var(--surface-border)]"
         >
           <p className="text-sm text-[var(--muted)]">
-            © {new Date().getFullYear()} Lic. Giuliana Covello — MP 68.137.
+            © {new Date().getFullYear()} Lic. Giuliana Covello — M.N. 76827.
             Todos los derechos reservados.
           </p>
           <p className="text-xs text-[rgba(148,163,184,0.5)] mt-2">

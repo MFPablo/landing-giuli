@@ -60,13 +60,13 @@ export default function Hero() {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-[var(--primary)]"
+            className="absolute rounded-full bg-[var(--primary-light)]"
             style={{
               width: `${Math.random() * 4 + 2}px`,
               height: `${Math.random() * 4 + 2}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.3 + 0.1,
+              opacity: Math.random() * 0.2 + 0.05,
               animation: `particle-float ${Math.random() * 10 + 10}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
@@ -84,11 +84,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--surface-border)] bg-[rgba(15,23,41,0.6)] backdrop-blur-sm mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--surface-border)] bg-[var(--nav-bg)] backdrop-blur-sm mb-8 shadow-sm"
         >
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-          <span className="text-sm text-[var(--muted)]">
-            MP 68.137 · Psicóloga Clínica
+          <span className="text-sm text-[var(--foreground)] font-medium opacity-80">
+            M.N. 76827 · Psicóloga Clínica
           </span>
         </motion.div>
 
@@ -104,7 +104,7 @@ export default function Hero() {
               className={`inline-block ${
                 letter === " " ? "w-[0.3em]" : ""
               } ${
-                i < 8 ? "gradient-text" : "text-white"
+                i < 8 ? "gradient-text" : "text-[var(--foreground)]"
               }`}
               style={{ perspective: "600px" }}
             >
@@ -121,7 +121,7 @@ export default function Hero() {
           className="text-lg sm:text-xl md:text-2xl text-[var(--muted)] max-w-3xl mx-auto mb-4 leading-relaxed"
         >
           Diagnóstico de precisión en{" "}
-          <span className="text-white font-semibold">neurodesarrollo</span>
+          <span className="text-[var(--foreground)] font-semibold">neurodesarrollo</span>
         </motion.p>
 
         <motion.p
@@ -132,11 +132,9 @@ export default function Hero() {
         >
           Especialista en evaluaciones{" "}
           <span className="text-[var(--primary-light)] font-medium">ADOS-2</span> y{" "}
-          <span className="text-[var(--primary-light)] font-medium">ADI-R</span>{" "}
-          · Directora de Fundación Psico_LSA
+          <span className="text-[var(--primary-light)] font-medium">ADI-R</span>
         </motion.p>
 
-        {/* CTA */}
         <motion.div
           variants={ctaVariants}
           initial="hidden"
@@ -179,22 +177,22 @@ export default function Hero() {
             </svg>
           </a>
         </motion.div>
+      </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-6 h-10 rounded-full border-2 border-[var(--surface-border)] flex justify-center pt-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-2 rounded-full bg-[var(--primary)]"
-            />
-          </div>
-        </motion.div>
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+      >
+        <div className="w-6 h-10 rounded-full border-2 border-[var(--surface-border)] flex justify-center pt-2">
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-2 rounded-full bg-[var(--primary)]"
+          />
+        </div>
       </motion.div>
     </section>
   );

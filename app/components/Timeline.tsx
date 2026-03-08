@@ -5,44 +5,39 @@ import { useRef } from "react";
 
 const milestones = [
   {
-    year: "2016",
-    title: "Universidad de Buenos Aires (UBA)",
-    subtitle: "Lic. en Psicología",
-    description:
-      "Formación de grado en la Facultad de Psicología de la UBA, con orientación clínica y énfasis en desarrollo infantil.",
-    icon: "🎓",
-  },
-  {
-    year: "2018",
-    title: "Fundación Aigle",
-    subtitle: "Posgrado en Psicoterapia Cognitiva",
-    description:
-      "Especialización en Psicoterapia Cognitiva Integrativa. Formación avanzada en evaluación y tratamientos basados en evidencia.",
-    icon: "🧠",
-  },
-  {
-    year: "2019",
-    title: "Hospital Tobar García",
-    subtitle: "Residencia en Salud Mental Infantojuvenil",
-    description:
-      "Formación clínica intensiva en el hospital de referencia en psicopatología infantojuvenil de Argentina.",
-    icon: "🏥",
-  },
-  {
     year: "2021",
-    title: "Universidad Abierta Interamericana (UAI)",
-    subtitle: "Especialización en Neurodesarrollo",
-    description:
-      "Profundización en neurodesarrollo, trastornos del espectro autista y herramientas de evaluación diagnóstica ADOS-2 y ADI-R.",
-    icon: "📚",
+    title: "Universidad de Buenos Aires (UBA)",
+    subtitle: "Licenciatura en Psicología",
+    description: "Formación de grado en la Facultad de Psicología de la UBA con orientación clínica.",
+    icon: "🎓",
   },
   {
     year: "2022",
     title: "Fundación Psico_LSA",
-    subtitle: "Directora y Fundadora",
-    description:
-      "Creación de la primera fundación en Argentina dedicada a la salud mental de la comunidad sorda, integrando lengua de señas argentina (LSA).",
+    subtitle: "Co-fundadora y Atención Clínica",
+    description: "Creación de la fundación dedicada a la atención clínica de niños y adolescentes sordos en Lengua de Señas Argentina (LSA).",
     icon: "🤟",
+  },
+  {
+    year: "2023",
+    title: "Fundación Aigle",
+    subtitle: "Especialización en Psicoterapia Cognitiva",
+    description: "Carrera de Especialización en Psicoterapia Cognitiva Integrativa.",
+    icon: "🧠",
+  },
+  {
+    year: "2024",
+    title: "UAI y Certificaciones",
+    subtitle: "Análisis Conductual y Herramientas Clínicas",
+    description: "Diplomatura en Análisis Conductual Aplicado (UAI) y certificaciones clínicas internacionales en ADOS-2 y ADI-R.",
+    icon: "📚",
+  },
+  {
+    year: "2025",
+    title: "Universidad Abierta Interamericana (UAI)",
+    subtitle: "Evaluación y Diagnóstico Neuropsicológico",
+    description: "Diplomatura Universitaria enfocada en Evaluación y Diagnóstico Neuropsicológico en Niños y Adolescentes.",
+    icon: "🏥",
   },
 ];
 
@@ -73,11 +68,8 @@ function TimelineItem({
       >
         <div className="flex items-center gap-3 mb-3">
           <span className="text-2xl">{milestone.icon}</span>
-          <span className="text-sm font-mono text-[var(--primary-light)] bg-[rgba(14,165,233,0.1)] px-3 py-1 rounded-full">
-            {milestone.year}
-          </span>
         </div>
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+        <h3 className="text-xl md:text-2xl font-bold text-[var(--foreground)] mb-1">
           {milestone.title}
         </h3>
         <p className="text-[var(--primary-light)] font-medium text-sm mb-3">

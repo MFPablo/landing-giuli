@@ -14,7 +14,7 @@ const specialties = [
       "Evaluación semi-estructurada de 40-60 minutos",
       "Aplicable desde los 12 meses de edad",
       "Gold standard internacional en diagnóstico TEA",
-      "Resultados validados y cuantificables",
+      "Certificación clínica por el Lincoln Institute",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -34,7 +34,7 @@ const specialties = [
       "Entrevista clínica de 90-150 minutos",
       "Evaluación del desarrollo temprano",
       "Análisis de interacción social recíproca",
-      "Complemento esencial para diagnóstico integral",
+      "Certificación por Weill Cornell Medical College",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -54,7 +54,7 @@ const specialties = [
       "Abordaje personalizado e integral",
       "Técnicas basadas en evidencia científica",
       "Intervención con la familia como eje",
-      "Seguimiento continuo del proceso terapéutico",
+      "Especialización por la Fundación Aigle",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -105,7 +105,7 @@ function SpecialtyCard({
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-bold text-white mb-1">{specialty.title}</h3>
+        <h3 className="text-2xl font-bold text-[var(--foreground)] mb-1">{specialty.title}</h3>
         <p className={`text-sm font-medium bg-gradient-to-r ${specialty.color} bg-clip-text text-transparent mb-4`}>
           {specialty.subtitle}
         </p>

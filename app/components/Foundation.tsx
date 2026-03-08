@@ -108,27 +108,30 @@ export default function Foundation() {
             Argentina dedicada a garantizar el acceso a la salud mental de la
             comunidad sorda a través de la lengua de señas.
           </motion.p>
-        </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16"
-        >
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="glass-card p-8 text-center"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="mt-8"
+          >
+            <a
+              href="https://www.psicolsa.com.ar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-white font-medium hover:bg-[var(--accent-hover)] transition-all group"
             >
-              <p className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              </p>
-              <p className="text-[var(--muted)] text-sm">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
+              Visitar sitio oficial
+              <svg 
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
 
         {/* Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -166,7 +169,7 @@ function PillarCard({
       className="glass-card glass-card-hover p-8"
     >
       <span className="text-4xl mb-4 block">{pillar.icon}</span>
-      <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
+      <h3 className="text-xl font-bold text-[var(--foreground)] mb-3">{pillar.title}</h3>
       <p className="text-[var(--muted)] text-sm leading-relaxed">
         {pillar.text}
       </p>
