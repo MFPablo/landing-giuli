@@ -12,13 +12,6 @@ const milestones = [
     icon: "🎓",
   },
   {
-    year: "2022",
-    title: "Fundación Psico_LSA",
-    subtitle: "Co-fundadora y Atención Clínica",
-    description: "Creación de la fundación dedicada a la atención clínica de niños y adolescentes sordos en Lengua de Señas Argentina (LSA).",
-    icon: "🤟",
-  },
-  {
     year: "2023",
     title: "Fundación Aigle",
     subtitle: "Especialización en Psicoterapia Cognitiva",
@@ -27,10 +20,17 @@ const milestones = [
   },
   {
     year: "2024",
-    title: "UAI y Certificaciones",
-    subtitle: "Análisis Conductual y Herramientas Clínicas",
-    description: "Diplomatura en Análisis Conductual Aplicado (UAI) y certificaciones clínicas internacionales en ADOS-2 y ADI-R.",
+    title: "Universidad Abierta Interamericana (UAI)",
+    subtitle: "Diplomatura en Análisis Conductual Aplicado",
+    description: "Diplomatura universitaria enfocada en los principios y técnicas del Análisis Conductual Aplicado.",
     icon: "📚",
+  },
+  {
+    year: "2024",
+    title: "Certificaciones Clínicas Internacionales",
+    subtitle: "ADOS-2 y ADI-R",
+    description: "Certificación clínica en ADOS-2 por el Lincoln Institute y certificación en ADI-R por el Weill Cornell Medical College.",
+    icon: "📜",
   },
   {
     year: "2025",

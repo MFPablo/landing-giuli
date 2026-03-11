@@ -9,7 +9,8 @@ const navLinks = [
   { label: "Trayectoria", href: "#trayectoria" },
   { label: "Especialidades", href: "#especialidades" },
   { label: "Fundación", href: "#fundacion" },
-  { label: "Reconocimientos", href: "#premios" },
+  { label: "Premios", href: "#premios" },
+  { label: "Congresos", href: "#congresos" },
   { label: "Contacto", href: "#contacto" },
 ];
 

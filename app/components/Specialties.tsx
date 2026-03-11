@@ -44,26 +44,6 @@ const specialties = [
     color: "from-purple-500 to-pink-400",
     bgGlow: "rgba(168, 85, 247, 0.1)",
   },
-  {
-    id: "pci",
-    title: "Psicoterapia Cognitiva Integrativa",
-    subtitle: "Abordaje terapéutico basado en evidencia",
-    description:
-      "Modelo terapéutico que integra técnicas cognitivo-conductuales con perspectiva del neurodesarrollo. Intervenciones personalizadas para cada paciente y su familia.",
-    details: [
-      "Abordaje personalizado e integral",
-      "Técnicas basadas en evidencia científica",
-      "Intervención con la familia como eje",
-      "Especialización por la Fundación Aigle",
-    ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-      </svg>
-    ),
-    color: "from-emerald-500 to-teal-400",
-    bgGlow: "rgba(16, 185, 129, 0.1)",
-  },
 ];
 
 function SpecialtyCard({
@@ -203,13 +183,12 @@ export default function Specialties() {
             className="text-[var(--muted)] mt-4 max-w-2xl mx-auto text-lg"
           >
             Herramientas gold standard internacionales para el diagnóstico del
-            Trastorno del Espectro Autista, combinadas con un abordaje
-            terapéutico integral.
+            Trastorno del Espectro Autista.
           </motion.p>
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {specialties.map((specialty, i) => (
             <SpecialtyCard key={specialty.id} specialty={specialty} index={i} />
           ))}

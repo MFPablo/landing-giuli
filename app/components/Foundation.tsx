@@ -104,7 +104,7 @@ export default function Foundation() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-[var(--muted)] mt-4 max-w-3xl mx-auto text-lg"
           >
-            Liderazgo en salud mental y discapacidad. La primera organización en
+            Co-fundadora desde 2022. La primera organización en
             Argentina dedicada a garantizar el acceso a la salud mental de la
             comunidad sorda a través de la lengua de señas.
           </motion.p>

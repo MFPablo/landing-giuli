@@ -5,35 +5,22 @@ import { useRef } from "react";
 
 const awards = [
   {
-    icon: "🎤",
-    title: "Congreso Internacional de Psicología — UBA",
-    year: "2025",
-    description: "Disertante en el XVII Congreso Internacional de Investigación y Práctica Profesional de Psicología.",
-  },
-  {
-    icon: "🌟",
-    title: "I Jornada de Salud Mental y LSA",
-    year: "2025",
-    description: "Organizadora y disertante principal en la jornada impulsada por la Fundación Psico_LSA.",
-  },
-  {
-    icon: "🏛️",
-    title: "Congreso Argentino de Salud Mental",
-    year: "2025",
-    description: "Disertante en el XVIII Congreso organizado por la Asociación Argentina de Salud Mental (AASM).",
-  },
-  {
-    icon: "📜",
-    title: "Congreso de Psicología — UNLP",
+    icon: "🏆",
+    title: "Premio Facultad de Psicología — UBA",
     year: "2023",
-    description: "Expositora en el Congreso Internacional «A 40 años de la recuperación democrática en Argentina».",
+    description: "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
+  },
+  {
+    icon: "🏆",
+    title: "Premio Facultad de Psicología — UBA",
+    year: "2025",
+    description: "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
   },
 ];
 
 const marqueeItems = [
   "ADOS-2 y ADI-R",
   "Lengua de Señas Argentina (LSA)",
-  "Psicoterapia Cognitiva Integrativa",
   "Evaluación Neuropsicológica",
   "Análisis Conductual Aplicado",
   "Neurodesarrollo",
@@ -74,7 +61,7 @@ export default function Awards() {
         </div>
 
         {/* Awards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20">
           {awards.map((award, i) => (
             <AwardCard key={`${award.title}-${award.year}`} award={award} index={i} />
           ))}

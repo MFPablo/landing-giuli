@@ -4,6 +4,7 @@ import Timeline from "./components/Timeline";
 import Specialties from "./components/Specialties";
 import Foundation from "./components/Foundation";
 import Awards from "./components/Awards";
+import Congresos from "./components/Congresos";
 import Contact from "./components/Contact";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Specialties />
       <Foundation />
       <Awards />
+      <Congresos />
       <Contact />
     </main>
   );
