@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
@@ -18,6 +19,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -28,7 +30,7 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href.startsWith("/")) {
-      window.location.href = href;
+      router.push(href);
       return;
     }
     const el = document.querySelector(href);
