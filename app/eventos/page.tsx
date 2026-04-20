@@ -91,6 +91,11 @@ export default function EventosPage() {
 
         {/* Event list */}
         <div className="flex flex-col gap-6">
+          {sorted.length === 0 && (
+            <p className="text-[var(--muted)] text-sm py-8 text-center">
+              No hay eventos disponibles por el momento.
+            </p>
+          )}
           {sorted.map((evento) => {
             const badge = estadoBadge[evento.estado];
             const isPasado = evento.estado === "pasado";
@@ -99,14 +104,13 @@ export default function EventosPage() {
               <Link
                 key={evento.slug}
                 href={`/eventos/${evento.slug}`}
-                className={`glass-card glass-card-hover group flex gap-5 p-4 sm:p-5 transition-opacity ${
+                className={`glass-card glass-card-hover group flex gap-5 p-4 sm:p-5 transition-opacity duration-300 ${
                   isPasado ? "opacity-60 hover:opacity-80" : ""
                 }`}
               >
                 {/* Thumbnail */}
                 <div
-                  className="relative flex-shrink-0 rounded-xl overflow-hidden"
-                  style={{ width: 80, height: 100 }}
+                  className="relative flex-shrink-0 rounded-xl overflow-hidden w-20 h-[100px]"
                 >
                   <Image
                     src={evento.imagen}
