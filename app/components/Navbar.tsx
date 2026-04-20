@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Fundación", href: "#fundacion" },
   { label: "Premios", href: "#premios" },
   { label: "Congresos", href: "#congresos" },
+  { label: "Eventos", href: "/eventos" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -26,6 +27,10 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
+    if (href.startsWith("/")) {
+      window.location.href = href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
