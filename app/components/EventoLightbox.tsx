@@ -24,7 +24,9 @@ export default function EventoLightbox({ src, alt }: EventoLightboxProps) {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
-      document.body.style.overflow = "";
+      if (document.body.style.overflow === "hidden") {
+        document.body.style.overflow = "";
+      }
     };
   }, [open]);
 
