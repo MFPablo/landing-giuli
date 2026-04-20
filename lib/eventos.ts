@@ -14,8 +14,7 @@ export const eventos: Evento[] = [
   {
     slug: "evaluacion-autismo-sordera",
     titulo: "Evaluación de Autismo en la Sordera",
-    descripcion:
-      "Jornada de capacitación sobre la evaluación diagnóstica de TEA en personas sordas y con hipoacusia. Abordaje interdisciplinario con herramientas ADOS-2 y ADI-R adaptadas.",
+    descripcion: "Jornada de capacitación.",
     fecha: "2026-05-16",
     hora: "10:00",
     imagen:

@@ -5,6 +5,7 @@ import Specialties from "./components/Specialties";
 import Foundation from "./components/Foundation";
 import Awards from "./components/Awards";
 import Congresos from "./components/Congresos";
+import ProximoEvento from "./components/ProximoEvento";
 import Contact from "./components/Contact";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Foundation />
       <Awards />
       <Congresos />
+      <ProximoEvento />
       <Contact />
     </main>
   );

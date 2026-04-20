@@ -85,7 +85,7 @@ export default async function EventoPage({ params }: Props) {
         {/* Back links */}
         <div className="flex items-center gap-4 mb-10">
           <Link
-            href="/"
+            href="/#agenda"
             className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300"
           >
             <svg

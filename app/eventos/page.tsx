@@ -6,11 +6,10 @@ import { eventos, formatFecha, type EstadoEvento } from "../../lib/eventos";
 export const metadata: Metadata = {
   title: "Eventos — Lic. Giuliana Covello",
   description:
-    "Archivo de eventos, jornadas y capacitaciones de Lic. Giuliana Covello. Especialista en neurodesarrollo y lengua de señas argentina.",
+    "Eventos de Lic. Giuliana Covello. Especialista en neurodesarrollo y lengua de señas argentina.",
   openGraph: {
     title: "Eventos — Lic. Giuliana Covello",
-    description:
-      "Archivo de eventos, jornadas y capacitaciones de Lic. Giuliana Covello.",
+    description: "Eventos de Lic. Giuliana Covello.",
     type: "website",
     locale: "es_AR",
   },
@@ -35,136 +34,167 @@ const estadoBadge: Record<EstadoEvento, { label: string; className: string }> =
     },
   };
 
-const ordenEstado: Record<EstadoEvento, number> = {
-  activo: 0,
-  proximo: 1,
-  pasado: 2,
-};
-
 export default function EventosPage() {
-  const sorted = [...eventos].sort(
-    (a, b) => ordenEstado[a.estado] - ordenEstado[b.estado]
+  const proximos = eventos.filter(
+    (e) => e.estado === "proximo" || e.estado === "activo"
   );
+  const pasados = eventos.filter((e) => e.estado === "pasado");
 
   return (
     <div
       className="min-h-screen"
       style={{ backgroundColor: "var(--background)" }}
     >
-      {/* Dot pattern */}
       <div className="dot-pattern" />
 
-      <div className="max-w-4xl mx-auto px-6 py-16 relative z-10">
-        {/* Header */}
-        <div className="mb-12">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300 mb-8"
+      <div className="max-w-5xl mx-auto px-6 py-16 relative z-10">
+        {/* Back link */}
+        <Link
+          href="/#agenda"
+          className="inline-flex items-center gap-2 text-xs text-[var(--muted)] hover:text-[var(--primary)] transition-colors duration-300 mb-10 tracking-wide"
+        >
+          <svg
+            className="w-3.5 h-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 16l-4-4m0 0l4-4m-4 4h18"
-              />
-            </svg>
-            Giuliana Covello
-          </Link>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            />
+          </svg>
+          Giuliana Covello
+        </Link>
 
-          <span className="block text-sm text-[var(--primary-light)] font-mono tracking-widest uppercase mb-3">
+        {/* Header */}
+        <div className="mb-14">
+          <span className="block text-xs text-[var(--primary-light)] font-mono tracking-widest uppercase mb-3">
             Archivo
           </span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)]">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] font-[var(--font-display)]">
             Eventos
           </h1>
-          <p className="mt-4 text-[var(--muted)] max-w-lg">
-            Jornadas, capacitaciones y presentaciones sobre neurodesarrollo y
-            lengua de señas argentina.
-          </p>
         </div>
 
-        {/* Event list */}
-        <div className="flex flex-col gap-6">
-          {sorted.length === 0 && (
-            <p className="text-[var(--muted)] text-sm py-8 text-center">
-              No hay eventos disponibles por el momento.
-            </p>
-          )}
-          {sorted.map((evento) => {
-            const badge = estadoBadge[evento.estado];
-            const isPasado = evento.estado === "pasado";
+        {/* Sección Próximos */}
+        <Section
+          titulo="Próximos"
+          count={proximos.length}
+          empty="No hay eventos próximos por el momento."
+        >
+          {proximos.map((evento) => (
+            <EventCard key={evento.slug} evento={evento} dimmed={false} />
+          ))}
+        </Section>
 
-            return (
-              <Link
-                key={evento.slug}
-                href={`/eventos/${evento.slug}`}
-                className={`glass-card glass-card-hover group flex gap-5 p-4 sm:p-5 transition-opacity duration-300 ${
-                  isPasado ? "opacity-60 hover:opacity-80" : ""
-                }`}
-              >
-                {/* Thumbnail */}
-                <div
-                  className="relative flex-shrink-0 rounded-xl overflow-hidden w-20 h-[100px]"
-                >
-                  <Image
-                    src={evento.imagen}
-                    alt={`Flyer: ${evento.titulo}`}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
-                </div>
+        {/* Divider */}
+        <div className="my-12 border-t border-[var(--surface-border)]" />
 
-                {/* Info */}
-                <div className="flex flex-col justify-center gap-2 min-w-0">
-                  <span
-                    className={`self-start text-xs font-mono px-2.5 py-0.5 rounded-full ${badge.className}`}
-                  >
-                    {badge.label}
-                  </span>
-                  <h2 className="font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors line-clamp-2">
-                    {evento.titulo}
-                  </h2>
-                  <p className="text-sm text-[var(--muted)] line-clamp-2">
-                    {evento.descripcion}
-                  </p>
-                  <div className="flex items-center gap-3 flex-wrap mt-1">
-                    <span className="text-xs font-mono text-[var(--muted)]">
-                      {formatFecha(evento.fecha)}
-                    </span>
-                    <span className="text-xs font-mono text-[var(--muted)]">
-                      {evento.hora} hs
-                    </span>
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="self-center ml-auto pl-2 flex-shrink-0 text-[var(--muted)] group-hover:text-[var(--primary)] transition-colors">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        {/* Sección Pasados */}
+        <Section
+          titulo="Pasados"
+          count={pasados.length}
+          empty="Aún no hay eventos pasados."
+        >
+          {pasados.map((evento) => (
+            <EventCard key={evento.slug} evento={evento} dimmed />
+          ))}
+        </Section>
       </div>
     </div>
+  );
+}
+
+function Section({
+  titulo,
+  count,
+  empty,
+  children,
+}: {
+  titulo: string;
+  count: number;
+  empty: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <div className="flex items-baseline gap-3 mb-6">
+        <h2 className="text-xl font-semibold text-[var(--foreground)] font-[var(--font-display)]">
+          {titulo}
+        </h2>
+        {count > 0 && (
+          <span className="text-xs font-mono text-[var(--muted)] bg-[var(--surface-light)] border border-[var(--surface-border)] px-2 py-0.5 rounded-full">
+            {count}
+          </span>
+        )}
+      </div>
+
+      {count === 0 ? (
+        <p className="text-sm text-[var(--muted)] py-6 px-4 rounded-xl border border-dashed border-[var(--surface-border)] text-center">
+          {empty}
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function EventCard({
+  evento,
+  dimmed,
+}: {
+  evento: { slug: string; titulo: string; descripcion: string; fecha: string; hora: string; imagen: string; estado: EstadoEvento };
+  dimmed: boolean;
+}) {
+  const badge = estadoBadge[evento.estado];
+
+  return (
+    <Link
+      href={`/eventos/${evento.slug}`}
+      className={`glass-card glass-card-hover group flex flex-col overflow-hidden transition-opacity duration-300 ${
+        dimmed ? "opacity-60 hover:opacity-85" : ""
+      }`}
+    >
+      {/* Image */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <Image
+          src={evento.imagen}
+          alt={`Flyer: ${evento.titulo}`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        {/* Badge sobre imagen */}
+        <span
+          className={`absolute top-3 left-3 text-xs font-mono px-2.5 py-0.5 rounded-full backdrop-blur-sm ${badge.className}`}
+        >
+          {badge.label}
+        </span>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col gap-2 p-4 flex-1">
+        <h3 className="font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors line-clamp-2 leading-snug">
+          {evento.titulo}
+        </h3>
+        <p className="text-sm text-[var(--muted)] line-clamp-2 leading-relaxed flex-1">
+          {evento.descripcion}
+        </p>
+        <div className="flex items-center gap-3 pt-2 border-t border-[var(--surface-border)] mt-auto">
+          <span className="text-xs font-mono text-[var(--muted)]">
+            {formatFecha(evento.fecha)}
+          </span>
+          <span className="text-xs font-mono text-[var(--muted)]">
+            {evento.hora} hs
+          </span>
+        </div>
+      </div>
+    </Link>
   );
 }

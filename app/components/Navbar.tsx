@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Fundación", href: "#fundacion" },
   { label: "Premios", href: "#premios" },
   { label: "Congresos", href: "#congresos" },
-  { label: "Eventos", href: "/eventos" },
+  { label: "Agenda", href: "#agenda" },
   { label: "Contacto", href: "#contacto" },
 ];
 

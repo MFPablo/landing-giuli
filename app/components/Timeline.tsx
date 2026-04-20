@@ -39,6 +39,20 @@ const milestones = [
     description: "Diplomatura Universitaria enfocada en Evaluación y Diagnóstico Neuropsicológico en Niños y Adolescentes.",
     icon: "🏥",
   },
+  {
+    year: "2025",
+    title: "Lincoln Institute",
+    subtitle: "Certificación Oficial Avanzada en ADOS-2",
+    description: "Certificación oficial avanzada en la administración e interpretación del ADOS-2 (Autism Diagnostic Observation Schedule).",
+    icon: "📜",
+  },
+  {
+    year: "2025",
+    title: "Instituto Villasoles",
+    subtitle: "Certificación en Interpretación de Lengua de Señas Argentina (LSA)",
+    description: "Certificación como intérprete de Lengua de Señas Argentina, habilitando la atención y acompañamiento de personas sordas y con hipoacusia.",
+    icon: "🤟",
+  },
 ];
 
 function TimelineItem({
