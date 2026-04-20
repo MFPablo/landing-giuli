@@ -1,7 +1,17 @@
 "use client";
 
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+interface Particle {
+  width: number;
+  height: number;
+  left: number;
+  top: number;
+  opacity: number;
+  duration: number;
+  delay: number;
+}
 
 const titleLetters = "Giuliana Covello".split("");
 
@@ -39,6 +49,22 @@ const ctaVariants: Variants = {
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        width: Math.random() * 4 + 2,
+        height: Math.random() * 4 + 2,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        opacity: Math.random() * 0.2 + 0.05,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 5,
+      }))
+    );
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -57,18 +83,18 @@ export default function Hero() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p, i) => (
           <div
             key={i}
             className="absolute rounded-full bg-[var(--primary-light)]"
             style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.2 + 0.05,
-              animation: `particle-float ${Math.random() * 10 + 10}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+              width: `${p.width}px`,
+              height: `${p.height}px`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              opacity: p.opacity,
+              animation: `particle-float ${p.duration}s ease-in-out infinite`,
+              animationDelay: `${p.delay}s`,
             }}
           />
         ))}

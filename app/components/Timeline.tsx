@@ -151,7 +151,7 @@ export default function Timeline() {
         <div className="timeline-line" />
 
         {milestones.map((milestone, i) => (
-          <TimelineItem key={milestone.year} milestone={milestone} index={i} />
+          <TimelineItem key={`${milestone.year}-${i}`} milestone={milestone} index={i} />
         ))}
       </div>
     </section>
