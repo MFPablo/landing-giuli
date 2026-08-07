@@ -22,12 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const evento = getEventoBySlug(slug);
   if (!evento) return {};
 
+  const descripcionConFecha = `${formatFecha(evento.fecha)} · ${evento.descripcion}`;
+
   return {
     title: `${evento.titulo} — Lic. Giuliana Covello`,
-    description: evento.descripcion,
+    description: descripcionConFecha,
     openGraph: {
       title: evento.titulo,
-      description: evento.descripcion,
+      description: descripcionConFecha,
       type: "website",
       locale: "es_AR",
       images: [
@@ -42,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: evento.titulo,
-      description: evento.descripcion,
+      description: descripcionConFecha,
       images: [evento.imagen],
     },
   };
