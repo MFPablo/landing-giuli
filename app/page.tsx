@@ -6,6 +6,8 @@ import Foundation from "./components/Foundation";
 import Awards from "./components/Awards";
 import Congresos from "./components/Congresos";
 import ProximoEvento from "./components/ProximoEvento";
+import ProcesoDiagnostico from "./components/ProcesoDiagnostico";
+import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 
 export default function Home() {
@@ -16,12 +18,14 @@ export default function Home() {
 
       <Navbar />
       <Hero />
-      <Timeline />
       <Specialties />
-      <Foundation />
+      <ProcesoDiagnostico />
+      <ProximoEvento />
+      <Timeline />
       <Awards />
       <Congresos />
-      <ProximoEvento />
+      <Foundation />
+      <FAQ />
       <Contact />
     </main>
   );

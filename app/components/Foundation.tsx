@@ -47,7 +47,7 @@ const pillars = [
   {
     icon: "📋",
     title: "Diagnóstico Accesible",
-    text: "Adaptación de los instrumentos ADOS-2 y ADI-R para personas sordas e hipoacúsicas, un abordaje pionero en Latinoamérica.",
+    text: "Psicodiagnóstico especializado según la modalidad comunicativa.",
   },
   {
     icon: "🎓",

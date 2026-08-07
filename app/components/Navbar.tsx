@@ -7,12 +7,14 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
-  { label: "Trayectoria", href: "#trayectoria" },
   { label: "Especialidades", href: "#especialidades" },
-  { label: "Fundación", href: "#fundacion" },
+  { label: "Proceso", href: "#proceso" },
+  { label: "Agenda", href: "#agenda" },
+  { label: "Trayectoria", href: "#trayectoria" },
   { label: "Premios", href: "#premios" },
   { label: "Congresos", href: "#congresos" },
-  { label: "Agenda", href: "#agenda" },
+  { label: "Fundación", href: "#fundacion" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contacto" },
 ];
 

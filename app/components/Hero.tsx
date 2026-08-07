@@ -149,21 +149,10 @@ export default function Hero() {
           variants={subtitleVariants}
           initial="hidden"
           animate="visible"
-          className="text-lg sm:text-xl md:text-2xl text-[var(--muted)] max-w-3xl mx-auto mb-4 leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl text-[var(--muted)] max-w-3xl mx-auto mb-10 leading-relaxed"
         >
           Diagnóstico de precisión en{" "}
           <span className="text-[var(--foreground)] font-semibold">neurodesarrollo</span>
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.8 }}
-          className="text-base sm:text-lg text-[var(--muted)] max-w-2xl mx-auto mb-10"
-        >
-          Especialista en evaluaciones{" "}
-          <span className="text-[var(--primary-light)] font-medium whitespace-nowrap">ADOS-2</span> y{" "}
-          <span className="text-[var(--primary-light)] font-medium whitespace-nowrap">ADI-R</span>
         </motion.p>
 
         <motion.div

@@ -18,16 +18,6 @@ const awards = [
   },
 ];
 
-const marqueeItems = [
-  "ADOS-2 y ADI-R",
-  "Lengua de Señas Argentina (LSA)",
-  "Evaluación Neuropsicológica",
-  "Análisis Conductual Aplicado",
-  "Neurodesarrollo",
-  "Fundación Psico_LSA",
-  "Salud Mental Inclusiva",
-];
-
 export default function Awards() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerInView = useInView(sectionRef, { once: true, margin: "-100px" });
@@ -61,25 +51,10 @@ export default function Awards() {
         </div>
 
         {/* Awards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {awards.map((award, i) => (
             <AwardCard key={`${award.title}-${award.year}`} award={award} index={i} />
           ))}
-        </div>
-      </div>
-
-      {/* Marquee banner */}
-      <div className="relative py-6 md:py-8 bg-gradient-to-r from-[var(--surface)] via-[var(--surface-light)] to-[var(--surface)] border-y border-[var(--surface-border)] overflow-hidden flex w-full">
-        <div className="marquee-track flex-shrink-0">
-          {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-              <span
-                key={i}
-                className="flex items-center gap-4 px-8 text-sm font-medium text-[var(--muted)] whitespace-nowrap"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] opacity-50" />
-                {item}
-              </span>
-            ))}
         </div>
       </div>
     </section>
