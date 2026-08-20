@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ className }: { className?: string }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [mounted, setMounted] = useState(false);
 
@@ -30,21 +30,25 @@ export default function ThemeToggle() {
     }
   };
 
-  if (!mounted) return <div className="w-10 h-10" />;
+  if (!mounted)
+    return <div className={className ? "w-12" : "w-10 h-10"} aria-hidden />;
 
   return (
     <button
       onClick={toggle}
       aria-label={`Cambiar a modo ${theme === "light" ? "oscuro" : "claro"}`}
-      className="relative w-10 h-10 rounded-xl border border-[var(--surface-border)] bg-[var(--surface)] flex items-center justify-center text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-300 cursor-pointer"
+      className={
+        className ??
+        "relative w-10 h-10 rounded-xl border border-[var(--surface-border)] bg-[var(--surface)] flex items-center justify-center text-[var(--muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-all duration-300 cursor-pointer"
+      }
     >
-      {/* Sun */}
+      {/* Sun — shown in dark mode (tap to go light) */}
       <motion.svg
         initial={false}
         animate={{
-          scale: theme === "light" ? 1 : 0,
-          rotate: theme === "light" ? 0 : -90,
-          opacity: theme === "light" ? 1 : 0,
+          scale: theme === "dark" ? 1 : 0,
+          rotate: theme === "dark" ? 0 : -90,
+          opacity: theme === "dark" ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
         className="w-5 h-5 absolute"
@@ -59,13 +63,13 @@ export default function ThemeToggle() {
           d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
         />
       </motion.svg>
-      {/* Moon */}
+      {/* Moon — shown in light mode (tap to go dark) */}
       <motion.svg
         initial={false}
         animate={{
-          scale: theme === "dark" ? 1 : 0,
-          rotate: theme === "dark" ? 0 : 90,
-          opacity: theme === "dark" ? 1 : 0,
+          scale: theme === "light" ? 1 : 0,
+          rotate: theme === "light" ? 0 : 90,
+          opacity: theme === "light" ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
         className="w-5 h-5 absolute"

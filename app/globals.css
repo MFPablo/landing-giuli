@@ -43,6 +43,12 @@
   --card-hover-shadow2: rgba(44, 55, 66, 0.06);
   --heading-color: var(--foreground);
   --hamburger-color: var(--foreground);
+  /* Nav pill — saturated CTA + darker toggle segment for strong contrast */
+  --cta-bg: #5e7b99;
+  --cta-hover: #47617c;
+  --toggle-seg: #212c38;
+  --toggle-seg-hover: #33414f;
+  --toggle-icon: #f5f1e8;
   /* Warm accent used for awards / distinctions */
   --gold: #a9764a;
 }
@@ -69,6 +75,12 @@
   --card-hover-shadow2: rgba(0, 0, 0, 0.25);
   --heading-color: #e9e4d8;
   --hamburger-color: #e9e4d8;
+  /* Nav pill — keep CTA saturated (not the pale --primary) so cream text stays legible */
+  --cta-bg: #5e7b99;
+  --cta-hover: #4d6884;
+  --toggle-seg: #212c38;
+  --toggle-seg-hover: #33414f;
+  --toggle-icon: #f5f1e8;
   --gold: #d0a06a;
 }
 
@@ -127,6 +139,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] .gradient-text {
+  color: var(--primary-light);
+}
+
+/* Logo accent — same tint as gradient-text but upright (no italic). */
+.logo-name {
+  color: var(--primary-dark);
+  font-style: normal;
+}
+[data-theme="dark"] .logo-name {
   color: var(--primary-light);
 }
 

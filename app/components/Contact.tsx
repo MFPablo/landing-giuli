@@ -99,23 +99,6 @@ export default function Contact() {
             </a>
           ))}
         </motion.div>
-
-        {/* Footer bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-16 pt-8 border-t border-[var(--surface-border)]"
-        >
-          <p className="text-sm text-[var(--muted)]">
-            © {new Date().getFullYear()} Lic. Giuliana Covello — M.N. 76827.
-            Todos los derechos reservados.
-          </p>
-          <p className="text-xs text-[rgba(148,163,184,0.5)] mt-2">
-            Psicóloga Clínica · Especialista en Neurodesarrollo · Directora de
-            Fundación Psico_LSA
-          </p>
-        </motion.div>
       </div>
     </section>
   );

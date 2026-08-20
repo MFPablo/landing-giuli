@@ -21,8 +21,25 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden px-5 sm:px-8 py-24 md:py-28"
     >
-      {/* Ambient wash behind the card */}
-      <div className="mesh-gradient" />
+      {/* Photographic sea/sky backdrop — muted, melts into the page palette */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/photos/hero-sky.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_22%]"
+          style={{ filter: "saturate(0.92) brightness(1.03)" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, color-mix(in srgb, var(--background) 10%, transparent) 0%, transparent 26%, transparent 64%, color-mix(in srgb, var(--background) 52%, transparent) 88%, var(--background) 100%)",
+          }}
+        />
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -125,20 +142,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── Right: sea/sky + portrait placeholder ── */}
-          <div
-            className="relative min-h-[300px] md:min-h-full"
-            style={{
-              background:
-                "radial-gradient(120% 80% at 60% 0%, #cfe0ee, transparent 60%), linear-gradient(180deg, #bcd0e0 0%, #9db6c9 42%, #6f8ea6 43%, #5b7f9a 100%)",
-            }}
-          >
-            {/* faint horizon lines */}
+          {/* ── Right: portrait over the real sea backdrop ── */}
+          <div className="relative min-h-[300px] md:min-h-full">
+            {/* subtle deepen so the panel reads as its own stretch of sea */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                backgroundImage:
-                  "repeating-linear-gradient(180deg, transparent 0 22px, rgba(255,255,255,0.05) 22px 23px)",
+                background:
+                  "linear-gradient(180deg, rgba(70,97,124,0.10) 0%, rgba(47,71,96,0.32) 100%)",
               }}
             />
             {/* portrait frame */}
@@ -162,26 +173,6 @@ export default function Hero() {
               />
             </motion.div>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
-      >
-        <div
-          className="w-6 h-10 rounded-full flex justify-center pt-2"
-          style={{ border: "2px solid var(--surface-border)" }}
-        >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1 h-2 rounded-full"
-            style={{ background: "var(--primary)" }}
-          />
         </div>
       </motion.div>
     </section>
