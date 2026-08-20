@@ -55,13 +55,13 @@ function StepItem({
       )}
 
       {/* Number badge */}
-      <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] text-white flex items-center justify-center font-bold text-lg font-[family-name:var(--font-outfit)] shadow-lg">
+      <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-xl bg-[var(--primary)] text-[var(--surface)] flex items-center justify-center font-bold text-lg font-[family-name:var(--font-fraunces)] shadow-lg">
         {step.num}
       </div>
 
       {/* Content card */}
       <div className="glass-card glass-card-hover p-5 md:p-6 flex-1">
-        <h3 className="text-lg md:text-xl font-bold text-[var(--foreground)] mb-2">
+        <h3 className="text-lg md:text-xl text-[var(--foreground)] mb-2">
           {step.title}
         </h3>
         <p className="text-[var(--muted)] text-sm md:text-base leading-relaxed">
@@ -96,19 +96,17 @@ export default function ProcesoDiagnostico() {
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={headerInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block text-sm text-[var(--primary-light)] font-mono tracking-widest uppercase mb-4"
-          >
-            Proceso
-          </motion.span>
+            className="mx-auto mb-6 h-[2px] w-11 rounded-full bg-[var(--primary)] origin-center"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl"
           >
             Proceso diagnóstico{" "}
             <span className="gradient-text">paso a paso</span>

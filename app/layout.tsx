@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Outfit, Fraunces } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import A11yProvider from "./components/A11yProvider";
@@ -15,6 +15,15 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   display: "swap",
+});
+
+// Display serif for headings (Puerto sereno). Soft optical sizing for a warm,
+// editorial voice. Italic axis is used for emphasis words.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
@@ -94,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="es" className={`${inter.variable} ${outfit.variable} ${fraunces.variable}`}>
       <body>
         <A11yProvider>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>

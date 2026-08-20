@@ -59,7 +59,7 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick("#hero");
             }}
-            className="text-lg font-bold tracking-tight font-[var(--font-outfit)]"
+            className="text-xl tracking-tight font-[family-name:var(--font-fraunces)]"
           >
             <span className="gradient-text">Giuliana</span>{" "}
             <span className="text-[var(--foreground)]">Covello</span>
@@ -78,7 +78,7 @@ export default function Navbar() {
                   className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--primary)] group-hover:w-full transition-all duration-300" />
                 </a>
               </li>
             ))}

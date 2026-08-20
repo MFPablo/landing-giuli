@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useA11y } from "./A11yProvider";
+import { IconAccessibility } from "./Icons";
 
 function ToggleSwitch({
   checked,
@@ -95,13 +96,13 @@ export default function AccessibilityWidget() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="glass-card absolute bottom-16 left-0 w-72 max-w-[calc(100vw-2.5rem)] p-5 shadow-2xl"
           >
-            <h2 className="text-base font-bold text-[var(--foreground)] mb-4 flex items-center gap-2">
-              <span aria-hidden="true">♿</span> Accesibilidad
+            <h2 className="text-lg text-[var(--foreground)] mb-4 flex items-center gap-2">
+              <IconAccessibility className="w-5 h-5 text-[var(--primary-dark)]" /> Accesibilidad
             </h2>
 
             {/* Text size */}
             <div className="mb-5">
-              <p className="text-xs font-mono uppercase tracking-widest text-[var(--muted)] mb-2">
+              <p className="text-xs uppercase tracking-widest text-[var(--muted)] mb-2">
                 Tamaño de texto
               </p>
               <div className="flex items-center gap-2">

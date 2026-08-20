@@ -13,9 +13,6 @@ import Contact from "./components/Contact";
 export default function Home() {
   return (
     <main className="relative">
-      {/* Decorative dot pattern background */}
-      <div className="dot-pattern" />
-
       <Navbar />
       <Hero />
       <Specialties />

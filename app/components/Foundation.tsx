@@ -1,56 +1,22 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, target, {
-        duration: 2,
-        ease: "easeOut",
-      });
-      const unsubscribe = rounded.on("change", (v) => setDisplayValue(v));
-      return () => {
-        controls.stop();
-        unsubscribe();
-      };
-    }
-  }, [isInView, count, rounded, target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {displayValue}
-      {suffix}
-    </span>
-  );
-}
-
-const stats = [
-  { value: 500, suffix: "+", label: "Evaluaciones realizadas" },
-  { value: 8, suffix: "", label: "Años de experiencia" },
-  { value: 50, suffix: "+", label: "Profesionales capacitados" },
-];
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { IconHands, IconClipboard, IconCap } from "./Icons";
 
 const pillars = [
   {
-    icon: "🤟",
+    Icon: IconHands,
     title: "Atención en LSA",
     text: "Primera fundación en Argentina que brinda atención psicológica en Lengua de Señas Argentina, eliminando barreras de comunicación.",
   },
   {
-    icon: "📋",
+    Icon: IconClipboard,
     title: "Diagnóstico Accesible",
     text: "Psicodiagnóstico especializado según la modalidad comunicativa.",
   },
   {
-    icon: "🎓",
+    Icon: IconCap,
     title: "Formación de Profesionales",
     text: "Capacitación a equipos de salud en atención inclusiva y en la intersección entre discapacidad auditiva y neurodesarrollo.",
   },
@@ -81,19 +47,17 @@ export default function Foundation() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={headerInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block text-sm text-[var(--accent-light)] font-mono tracking-widest uppercase mb-4"
-          >
-            Impacto Social
-          </motion.span>
+            className="mx-auto mb-6 h-[2px] w-11 rounded-full bg-[var(--primary)] origin-center"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl"
           >
             Fundación{" "}
             <span className="gradient-text">Psico_LSA</span>
@@ -155,6 +119,7 @@ function PillarCard({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const { Icon } = pillar;
 
   return (
     <motion.div
@@ -168,8 +133,10 @@ function PillarCard({
       }}
       className="glass-card glass-card-hover p-6 md:p-8"
     >
-      <span className="text-4xl mb-4 block">{pillar.icon}</span>
-      <h3 className="text-xl font-bold text-[var(--foreground)] mb-3">{pillar.title}</h3>
+      <div className="w-12 h-12 rounded-xl bg-[var(--surface-light)] text-[var(--primary-dark)] flex items-center justify-center flex-shrink-0 mb-4">
+        <Icon className="w-6 h-6" />
+      </div>
+      <h3 className="text-xl text-[var(--foreground)] mb-3">{pillar.title}</h3>
       <p className="text-[var(--muted)] text-sm leading-relaxed">
         {pillar.text}
       </p>

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { eventos, formatFecha, type Evento } from "../../lib/eventos";
 import EventoLightbox from "./EventoLightbox";
+import { IconCalendar, IconClock } from "./Icons";
 
 export default function ProximoEvento() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -24,19 +25,17 @@ export default function ProximoEvento() {
 
         {/* Header — mismo patrón que el resto de secciones */}
         <div className="text-center mb-16 md:mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={headerInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block text-sm text-[var(--primary-light)] font-mono tracking-widest uppercase mb-4"
-          >
-            Eventos
-          </motion.span>
+            className="mx-auto mb-6 h-[2px] w-11 rounded-full bg-[var(--primary)] origin-center"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl"
           >
             Mi <span className="gradient-text">Agenda</span>
           </motion.h2>
@@ -119,7 +118,7 @@ function EventCard({
           compact
         />
         {evento.estado === "activo" && (
-          <span className="absolute top-3 left-3 text-xs font-mono px-2.5 py-0.5 rounded-full bg-[rgba(6,182,212,0.12)] text-[var(--accent-light)] border border-[var(--surface-border)] backdrop-blur-sm">
+          <span className="absolute top-3 left-3 text-xs font-medium px-2.5 py-0.5 rounded-full bg-[var(--surface-light)] text-[var(--primary-dark)] border border-[var(--surface-border)] backdrop-blur-sm">
             En curso
           </span>
         )}
@@ -128,21 +127,17 @@ function EventCard({
       {/* Info */}
       <div className="p-6 flex flex-col gap-3 flex-1">
         <Link href={`/eventos/${evento.slug}`}>
-          <h3 className="font-bold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors leading-snug line-clamp-2">
+          <h3 className="text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors leading-snug line-clamp-2">
             {evento.titulo}
           </h3>
         </Link>
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--primary-light)] bg-[rgba(14,165,233,0.1)] border border-[var(--surface-border)] px-2.5 py-0.5 rounded-full">
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--primary-dark)] bg-[var(--surface-light)] border border-[var(--surface-border)] px-2.5 py-0.5 rounded-full">
+            <IconCalendar className="w-3.5 h-3.5" />
             {formatFecha(evento.fecha)}
           </span>
-          <span className="text-xs font-mono text-[var(--muted)]">
+          <span className="inline-flex items-center gap-1.5 text-xs text-[var(--muted)]">
+            <IconClock className="w-4 h-4" />
             {evento.hora} hs
           </span>
         </div>

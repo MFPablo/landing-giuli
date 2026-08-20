@@ -45,7 +45,6 @@ export default function EventosPage() {
       className="min-h-screen"
       style={{ backgroundColor: "var(--background)" }}
     >
-      <div className="dot-pattern" />
 
       <div className="max-w-5xl mx-auto px-6 py-16 relative z-10">
         {/* Back link */}

@@ -2,19 +2,20 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { IconTrophy } from "./Icons";
 
 const awards = [
   {
-    icon: "🏆",
     title: "Premio Facultad de Psicología — UBA",
     year: "2023",
-    description: "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
+    description:
+      "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
   },
   {
-    icon: "🏆",
     title: "Premio Facultad de Psicología — UBA",
     year: "2025",
-    description: "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
+    description:
+      "Distinción otorgada por la Facultad de Psicología de la Universidad de Buenos Aires.",
   },
 ];
 
@@ -31,22 +32,19 @@ export default function Awards() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={headerInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block text-sm text-[var(--primary-light)] font-mono tracking-widest uppercase mb-4"
-          >
-            Reconocimientos
-          </motion.span>
+            className="mx-auto mb-6 h-[2px] w-11 rounded-full bg-[var(--primary)] origin-center"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl"
           >
-            Premios y{" "}
-            <span className="gradient-text-gold">distinciones</span>
+            Premios y <span className="gradient-text-gold">distinciones</span>
           </motion.h2>
         </div>
 
@@ -76,18 +74,16 @@ function AwardCard({
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.12,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="glass-card glass-card-hover p-6 md:p-8 flex flex-col sm:flex-row gap-4 sm:gap-5"
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      className="glass-card glass-card-hover p-6 md:p-8 flex gap-5"
     >
-      <div className="text-3xl flex-shrink-0">{award.icon}</div>
+      <div className="w-12 h-12 rounded-xl bg-[var(--surface-light)] text-[var(--gold)] flex items-center justify-center flex-shrink-0">
+        <IconTrophy className="w-6 h-6" />
+      </div>
       <div>
         <div className="flex items-center gap-3 mb-2 flex-wrap">
-          <h3 className="text-lg font-bold text-[var(--foreground)]">{award.title}</h3>
-          <span className="text-xs font-mono text-[var(--primary-light)] bg-[rgba(14,165,233,0.1)] px-2 py-0.5 rounded-full">
+          <h3 className="text-lg text-[var(--foreground)]">{award.title}</h3>
+          <span className="text-xs font-medium text-[var(--primary-dark)] bg-[var(--surface-light)] border border-[var(--surface-border)] px-2.5 py-0.5 rounded-full">
             {award.year}
           </span>
         </div>

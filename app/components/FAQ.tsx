@@ -58,7 +58,7 @@ function FaqItem({
             aria-hidden="true"
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
-            className="w-5 h-5 flex-shrink-0 text-[var(--primary-light)]"
+            className="w-5 h-5 flex-shrink-0 text-[var(--primary)]"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -102,19 +102,17 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-14 md:mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={headerInView ? { opacity: 1, scaleX: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-block text-sm text-[var(--primary-light)] font-mono tracking-widest uppercase mb-4"
-          >
-            Preguntas frecuentes
-          </motion.span>
+            className="mx-auto mb-6 h-[2px] w-11 rounded-full bg-[var(--primary)] origin-center"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+            className="text-3xl sm:text-4xl md:text-5xl"
           >
             Resolvemos tus{" "}
             <span className="gradient-text">dudas</span>

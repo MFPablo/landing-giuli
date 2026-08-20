@@ -126,7 +126,7 @@ export default function EventoLightbox({ src, alt, compact }: EventoLightboxProp
       <button
         onClick={() => setOpen(true)}
         className="glass-card p-3 sm:p-4 max-w-sm w-full cursor-zoom-in group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] rounded-[1.25rem]"
-        style={{ boxShadow: "0 8px 40px rgba(2,132,199,0.12), 0 0 0 1px var(--surface-border)" }}
+        style={{ boxShadow: "0 14px 40px -18px rgba(44,55,66,0.35), 0 0 0 1px var(--surface-border)" }}
         aria-label="Ampliar flyer del evento"
       >
         <div className="relative w-full rounded-xl overflow-hidden" style={{ aspectRatio: "4/5" }}>
