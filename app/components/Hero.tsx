@@ -91,8 +91,7 @@ export default function Hero() {
               className="mt-5 text-base sm:text-lg max-w-[34ch]"
               style={{ color: "#eaf0f6" }}
             >
-              Evaluaciones ADOS-2 y ADI-R, con la calma y el cuidado que cada
-              familia necesita.
+              Evaluaciones ADOS-2 y ADI-R.
             </motion.p>
 
             <motion.p

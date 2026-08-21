@@ -3,9 +3,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { eventos, formatFecha, type Evento } from "../../lib/eventos";
+import { eventos, formatFecha, fechaCorta, type Evento } from "../../lib/eventos";
 import EventoLightbox from "./EventoLightbox";
-import { IconCalendar, IconClock } from "./Icons";
+import { IconClock, IconArrow, IconWhatsapp } from "./Icons";
 
 export default function ProximoEvento() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -103,8 +103,11 @@ function EventCard({
   index: number;
   isInView: boolean;
 }) {
+  const { dia, mes } = fechaCorta(evento.fecha);
+  const tieneInscripcion = Boolean(evento.link);
+
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: 0.2 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
@@ -117,31 +120,71 @@ function EventCard({
           alt={`Flyer: ${evento.titulo}`}
           compact
         />
+
+        {/* Scrim inferior — garantiza legibilidad del medallón */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
+
+        {/* Medallón de fecha — pieza editorial (día en Fraunces) */}
+        <div className="pointer-events-none absolute bottom-3 left-3 flex flex-col items-center rounded-xl border border-[var(--surface-border)] bg-[var(--card-bg)] px-3 py-1.5 leading-none shadow-lg backdrop-blur-md">
+          <span className="font-display text-[1.6rem] text-[var(--foreground)]">{dia}</span>
+          <span className="text-[0.58rem] font-semibold uppercase tracking-[0.22em] text-[var(--primary-dark)]">
+            {mes}
+          </span>
+          <span className="sr-only">{formatFecha(evento.fecha)}</span>
+        </div>
+
+        {/* Estado en curso — punto con pulso */}
         {evento.estado === "activo" && (
-          <span className="absolute top-3 left-3 text-xs font-medium px-2.5 py-0.5 rounded-full bg-[var(--surface-light)] text-[var(--primary-dark)] border border-[var(--surface-border)] backdrop-blur-sm">
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--surface-border)] bg-[var(--card-bg)] px-2.5 py-1 text-[0.7rem] font-medium text-[var(--primary-dark)] backdrop-blur-md">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary)] opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
+            </span>
             En curso
           </span>
         )}
       </div>
 
       {/* Info */}
-      <div className="p-6 flex flex-col gap-3 flex-1">
-        <Link href={`/eventos/${evento.slug}`}>
-          <h3 className="text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors leading-snug line-clamp-2">
+      <div className="flex flex-1 flex-col gap-2.5 p-5">
+        <Link href={`/eventos/${evento.slug}`} className="focus:outline-none">
+          <h3 className="line-clamp-2 leading-snug text-[var(--foreground)] transition-colors group-hover:text-[var(--primary)]">
             {evento.titulo}
           </h3>
         </Link>
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--primary-dark)] bg-[var(--surface-light)] border border-[var(--surface-border)] px-2.5 py-0.5 rounded-full">
-            <IconCalendar className="w-3.5 h-3.5" />
-            {formatFecha(evento.fecha)}
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-[var(--muted)]">
-            <IconClock className="w-4 h-4" />
+
+        <p className="line-clamp-2 text-sm text-[var(--muted)]">{evento.descripcion}</p>
+
+        {evento.hora && (
+          <span className="mt-0.5 inline-flex items-center gap-1.5 text-xs text-[var(--muted)]">
+            <IconClock className="h-4 w-4" />
             {evento.hora} hs
           </span>
+        )}
+
+        {/* Acción — inscripción real o funnel a WhatsApp */}
+        <div className="mt-auto pt-3">
+          {tieneInscripcion ? (
+            <a
+              href={evento.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-event group/btn focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]"
+            >
+              Inscribirme
+              <IconArrow className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+            </a>
+          ) : (
+            <a
+              href="#contacto"
+              className="btn-event-ghost focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)]"
+            >
+              <IconWhatsapp className="h-4 w-4" />
+              Consultá tu lugar
+            </a>
+          )}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

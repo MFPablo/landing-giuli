@@ -148,7 +148,7 @@ function EventCard({
   evento,
   dimmed,
 }: {
-  evento: { slug: string; titulo: string; descripcion: string; fecha: string; hora: string; imagen: string; estado: EstadoEvento };
+  evento: { slug: string; titulo: string; descripcion: string; fecha: string; hora?: string; imagen: string; estado: EstadoEvento };
   dimmed: boolean;
 }) {
   const badge = estadoBadge[evento.estado];
@@ -189,9 +189,11 @@ function EventCard({
           <span className="text-xs font-mono text-[var(--muted)]">
             {formatFecha(evento.fecha)}
           </span>
-          <span className="text-xs font-mono text-[var(--muted)]">
-            {evento.hora} hs
-          </span>
+          {evento.hora && (
+            <span className="text-xs font-mono text-[var(--muted)]">
+              {evento.hora} hs
+            </span>
+          )}
         </div>
       </div>
     </Link>

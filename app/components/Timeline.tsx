@@ -117,7 +117,7 @@ export default function Timeline() {
     <section
       id="trayectoria"
       ref={sectionRef}
-      className="section-padding relative"
+      className="section-padding relative overflow-x-clip"
     >
       {/* Section header */}
       <div className="max-w-7xl mx-auto mb-16 md:mb-24 text-center">

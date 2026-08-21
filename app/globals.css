@@ -275,6 +275,68 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary-light);
 }
 
+/* ─── Card CTA (event cards — quieter than btn-glow) ─── */
+.btn-event {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1.1rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #f6f2ea;
+  background: var(--primary-dark);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 10px 22px -16px rgba(71, 97, 124, 0.9);
+}
+
+.btn-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -16px rgba(71, 97, 124, 1);
+}
+
+[data-theme="dark"] .btn-event {
+  color: #16202b;
+  background: var(--primary-light);
+}
+
+[data-theme="dark"] .btn-event:hover {
+  background: var(--primary);
+}
+
+.btn-event-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1.1rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--primary-dark);
+  background: transparent;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-event-ghost:hover {
+  transform: translateY(-1px);
+  border-color: var(--card-hover-border);
+  background: var(--surface-light);
+}
+
+[data-theme="dark"] .btn-event-ghost {
+  color: var(--primary-light);
+}
+
 /* ─── Marquee ─── */
 @keyframes marquee {
   0% { transform: translateX(0); }

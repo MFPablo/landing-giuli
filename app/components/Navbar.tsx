@@ -154,8 +154,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[var(--mobile-bg)] backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-40 bg-[var(--mobile-bg)] backdrop-blur-2xl overflow-y-auto md:hidden"
           >
+            <div className="min-h-full flex flex-col items-center justify-center gap-8 px-6 pt-24 pb-12">
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.href}
@@ -182,6 +183,7 @@ export default function Navbar() {
             >
               Solicitar Turno
             </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
