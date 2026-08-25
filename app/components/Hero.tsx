@@ -88,14 +88,6 @@ export default function Hero() {
 
             <motion.p
               variants={rise}
-              className="mt-5 text-base sm:text-lg max-w-[34ch]"
-              style={{ color: "#eaf0f6" }}
-            >
-              Evaluaciones ADOS-2 y ADI-R.
-            </motion.p>
-
-            <motion.p
-              variants={rise}
               className="mt-4 text-sm tracking-wide"
               style={{ color: "#d0dbe6" }}
             >

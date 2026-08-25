@@ -6,21 +6,26 @@ import { useRef } from "react";
 const steps = [
   {
     num: "01",
-    title: "Anamnesis e Historia del Desarrollo",
-    text: "Entrevista inicial con la familia para reconstruir la historia del desarrollo.",
+    title: "Motivo de Consulta",
+    text: "Entrevista con la familia o el paciente para evaluar su motivo de consulta o derivación.",
   },
   {
     num: "02",
-    title: "Sesiones de Evaluación Presencial",
-    text: "Administración de pruebas estandarizadas en un entorno cuidado y adaptado a cada niño/a.",
+    title: "Anamnesis e Historia del Desarrollo",
+    text: "Entrevista con la familia o el paciente para reconstruir la historia del desarrollo.",
   },
   {
     num: "03",
+    title: "Sesiones de Evaluación Presencial",
+    text: "Administración de pruebas estandarizadas.",
+  },
+  {
+    num: "04",
     title: "Análisis e Informe Técnico",
     text: "Procesamiento cualitativo y cuantitativo de los resultados, integrando la observación clínica con los datos obtenidos.",
   },
   {
-    num: "04",
+    num: "05",
     title: "Devolución e Informe",
     text: "Sesión final con entrega del informe escrito detallado y pautas concretas para la familia, la escuela y el equipo interdisciplinario.",
   },
