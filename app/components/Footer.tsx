@@ -77,9 +77,16 @@ export default function Footer() {
           <p className="text-xs" style={{ color: "#c3d0dd" }}>
             © {year} Lic. Giuliana Covello. Todos los derechos reservados.
           </p>
-          <p className="text-xs" style={{ color: "#aebfce" }}>
-            Buenos Aires, Argentina
-          </p>
+          <div
+            className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs"
+            style={{ color: "#aebfce" }}
+          >
+            <p>Buenos Aires, Argentina</p>
+            <span aria-hidden="true">·</span>
+            <ultach-firma variant="design" theme="dark" app="giuli">
+              <a href="https://www.ultach.ar">hecho por ultach</a>
+            </ultach-firma>
+          </div>
         </div>
       </div>
     </footer>

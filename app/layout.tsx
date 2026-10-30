@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit, Fraunces } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScrollProvider from "./components/SmoothScrollProvider";
 import A11yProvider from "./components/A11yProvider";
@@ -113,6 +114,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script src="https://www.ultach.ar/firma.js" strategy="afterInteractive" />
       </body>
     </html>
   );
