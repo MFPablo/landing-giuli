@@ -13,6 +13,28 @@ export interface Evento {
 
 export const eventos: Evento[] = [
   {
+    slug: "webinar-sibshops",
+    titulo: "¿Estamos mirando a todos? — El lugar silencioso de los hermanos",
+    descripcion:
+      "Webinar gratuito y online · 12 de diciembre, 10 h (Argentina). Un encuentro para ampliar la mirada y cuidar el bienestar de toda la familia.",
+    fecha: "2026-12-12",
+    hora: "10:00",
+    imagen: "/eventos/webinar-sibshops.jpg",
+    estado: "proximo",
+    link: "https://forms.gle/Zc9TCYfWy4atotms6",
+  },
+  {
+    slug: "taller-hermanos",
+    titulo: "Taller para hermanos — De niños y niñas con discapacidad, de 8 a 13 años",
+    descripcion:
+      "Taller presencial Sibshops en Villa Urquiza · 16 de enero, de 11 a 13 h. Un espacio recreativo entre pares para hermanos y hermanas de 8 a 13 años.",
+    fecha: "2027-01-16",
+    hora: "11:00",
+    imagen: "/eventos/taller-hermanos.jpg",
+    estado: "proximo",
+    link: "https://forms.gle/CcuiFzZoCvDNaEDm9",
+  },
+  {
     slug: "ateneo-clinico-salud-mental-lsa",
     titulo: "Ateneo Clínico 2026 — Salud Mental y LSA",
     descripcion:
@@ -21,7 +43,7 @@ export const eventos: Evento[] = [
     hora: "12:00",
     imagen:
       "https://res.cloudinary.com/djbd7h9mr/image/upload/v1787328789/nuevo_ateneo.jpg",
-    estado: "proximo",
+    estado: "pasado",
     link: "https://psicolsa.com.ar/formacion/ateneos-clinicos/",
   },
   {
@@ -32,7 +54,7 @@ export const eventos: Evento[] = [
     fecha: "2026-10-24",
     imagen:
       "https://res.cloudinary.com/djbd7h9mr/image/upload/v1787328789/nueva_jornada.jpg",
-    estado: "proximo",
+    estado: "pasado",
   },
   {
     slug: "evaluacion-autismo-sordera",

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { IconInstagram, IconMail, IconWhatsapp } from "./Icons";
+import { useEffect, useRef } from "react";
+import { IconInstagram, IconMail } from "./Icons";
 
 const contactLinks = [
   {
@@ -20,6 +20,24 @@ const contactLinks = [
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Ajusta la altura del iframe de Mindora según el mensaje que envía
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      const f = iframeRef.current;
+      if (
+        f &&
+        e.origin === "https://mindora.com.ar" &&
+        e.source === f.contentWindow &&
+        e.data?.type === "mindora-contacto-height"
+      ) {
+        f.style.height = `${e.data.height}px`;
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
 
   return (
     <section
@@ -57,26 +75,24 @@ export default function Contact() {
           className="text-[var(--muted)] text-lg max-w-2xl mx-auto mb-10"
         >
           Si buscás un diagnóstico especializado en neurodesarrollo o querés
-          más información sobre las evaluaciones ADOS-2 y ADI-R, no dudes en
-          comunicarte.
+          más información sobre las evaluaciones, no dudes en comunicarte.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* Formulario de contacto (Mindora) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mb-10"
         >
-          <a
-            href="https://wa.me/5491164369172?text=Hola%20Giuliana,%20me%20gustaría%20consultar%20por%20una%20evaluación%20diagnóstica."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-glow text-lg"
-          >
-            <IconWhatsapp className="w-5 h-5" />
-            Solicitar Turno por WhatsApp
-          </a>
+          <iframe
+            id="mindora-contacto"
+            ref={iframeRef}
+            src="https://mindora.com.ar/contacto/Ex8VXtlWyQ7EDsB1lCRZEtE8QXU6xV4U"
+            title="Pedir contacto"
+            loading="lazy"
+            style={{ width: "100%", height: 720, border: 0 }}
+          />
         </motion.div>
 
         {/* Social links */}
